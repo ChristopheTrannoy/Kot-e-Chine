@@ -13,13 +13,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      #UserMailer.confirm(@user).deliver_now
-      redirect_to new_user_path, success: 'Votre compte a bien été créé, vous devriez recevoir une email de confirmation.'
+      log_in @user
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
     else
       render 'new'
     end
   end
-
+  
   private
 
     def user_params
