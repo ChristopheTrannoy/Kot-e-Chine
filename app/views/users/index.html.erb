@@ -1,0 +1,19 @@
+<h3>Liste des utilisateurs </h3>
+
+<% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
+
+<% @users.each do |user| %>
+
+  <div class="row">
+    <aside class="col-md-6">
+      <section class="user_info">
+        <p>
+          Pseudo : <%= user.username %> | email : <%= user.email %> | <%= link_to 'Show', user_path(user) %>
+        </p>
+      </section>
+    </aside>
+  </div>
+<% end %>
+<% else %>
+  <p>Vous n'avez pas accés à la liste des utilisateurs</p>
+<% end %>

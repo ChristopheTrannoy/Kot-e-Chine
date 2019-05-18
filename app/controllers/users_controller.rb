@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users =User.all
+  end
+
   def new
     @user = User.new
   end
@@ -14,7 +18,7 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Bienvenue sur le site du Kot-é-Chine"
       redirect_to @user
     else
       render 'new'

@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h3>
   <%= @event.name %>
-</p>
+</h3>
 
 <p>
-  <strong>Startdate:</strong>
+  <strong>Date de début:</strong>
   <%= @event.startDate %>
 </p>
 
 <p>
-  <strong>Enddate:</strong>
+  <strong>Date de fin:</strong>
   <%= @event.endDate %>
 </p>
 
 <p>
-  <strong>Eventplace:</strong>
+  <strong>Lieu:</strong>
   <%= @event.eventPlace %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+
+<% if @event.comments.any? %>
+<h5>Commentaire :</h5>
+<%= render @event.comments %>
+  <% else %>
+  <p>Pas de commentaire</p>
+<% end %>
+
+<% if logged_in? %>
+<h5>Ajouter un commentaire:</h5>
+<%= render 'comments/form' %>
+<% end %>

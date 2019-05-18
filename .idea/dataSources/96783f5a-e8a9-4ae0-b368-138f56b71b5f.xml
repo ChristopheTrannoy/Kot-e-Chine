@@ -13,13 +13,13 @@
       <ObjectId>16536</ObjectId>
       <StateNumber>746</StateNumber>
       <Owner>christophe</Owner>
-      <IntrospectionStateNumber>760</IntrospectionStateNumber>
+      <IntrospectionStateNumber>781</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
       <Relations>sequence|table|16554|16556|1
-sequence|table|16565|16567|1
 sequence|table|16582|16584|1
 sequence|table|16593|16595|1
+sequence|table|16606|16608|1
 </Relations>
     </database>
     <database id="4" parent="1" name="myapp_development">
@@ -96,7 +96,7 @@ sequence|table|16593|16595|1
       <Comment>standard public schema</Comment>
       <StateNumber>610</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>761</IntrospectionStateNumber>
+      <IntrospectionStateNumber>782</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -146,8 +146,8 @@ sequence|table|16593|16595|1
       <CacheSize>1</CacheSize>
     </sequence>
     <sequence id="24" parent="15" name="comments_id_seq">
-      <ObjectId>16565</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16606</ObjectId>
+      <StateNumber>779</StateNumber>
       <Owner>christophe</Owner>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
@@ -177,14 +177,14 @@ sequence|table|16593|16595|1
       <StateNumber>751</StateNumber>
     </table>
     <table id="29" parent="15" name="comments">
-      <ObjectId>16567</ObjectId>
+      <ObjectId>16608</ObjectId>
       <Owner>christophe</Owner>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
     </table>
     <table id="30" parent="15" name="events">
       <ObjectId>16584</ObjectId>
       <Owner>christophe</Owner>
-      <StateNumber>752</StateNumber>
+      <StateNumber>779</StateNumber>
     </table>
     <table id="31" parent="15" name="schema_migrations">
       <ObjectId>16538</ObjectId>
@@ -289,69 +289,69 @@ sequence|table|16593|16595|1
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
       <DefaultExpression>nextval(&apos;comments_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
     <column id="47" parent="29" name="commenter">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="48" parent="29" name="body">
       <Position>3</Position>
       <DataType>text|0s</DataType>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="49" parent="29" name="article_id">
+    <column id="49" parent="29" name="event_id">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="50" parent="29" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <column id="51" parent="29" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>751</StateNumber>
+      <StateNumber>779</StateNumber>
       <TypeId>1114</TypeId>
     </column>
     <index id="52" parent="29" name="comments_pkey">
-      <ObjectId>16574</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16615</ObjectId>
+      <StateNumber>779</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="53" parent="29" name="index_comments_on_article_id">
-      <ObjectId>16581</ObjectId>
-      <StateNumber>751</StateNumber>
-      <ColNames>article_id</ColNames>
+    <index id="53" parent="29" name="index_comments_on_event_id">
+      <ObjectId>16622</ObjectId>
+      <StateNumber>779</StateNumber>
+      <ColNames>event_id</ColNames>
     </index>
     <key id="54" parent="29" name="comments_pkey">
-      <ObjectId>16575</ObjectId>
-      <StateNumber>751</StateNumber>
+      <ObjectId>16616</ObjectId>
+      <StateNumber>779</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>comments_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="55" parent="29" name="fk_rails_3bf61a60d3">
-      <ObjectId>16576</ObjectId>
-      <StateNumber>751</StateNumber>
-      <ColNames>article_id</ColNames>
-      <RefTableId>16556</RefTableId>
+    <foreign-key id="55" parent="29" name="fk_rails_c6b77e33aa">
+      <ObjectId>16617</ObjectId>
+      <StateNumber>779</StateNumber>
+      <ColNames>event_id</ColNames>
+      <RefTableId>16584</RefTableId>
       <RefColPositions>1</RefColPositions>
-      <RefTableName>articles</RefTableName>
-      <RefKeyName>articles_pkey</RefKeyName>
+      <RefTableName>events</RefTableName>
+      <RefKeyName>events_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="56" parent="30" name="id">
