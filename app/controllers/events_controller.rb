@@ -1,7 +1,10 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:participer, :show, :edit, :update, :destroy]
 
-
+  def participer
+    @event.users << User.where(id: current_user.id).first_or_create
+    redirect_to @event
+  end
 
   def index
     @date = Time.new

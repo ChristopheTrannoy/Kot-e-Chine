@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
 has_secure_password
 has_secure_token :confirmation_token
+has_and_belongs_to_many :events
 
 before_save { email.downcase! }
 
@@ -23,10 +24,5 @@ before_save { email.downcase! }
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
-  end
-
-  # Returns a random token.
-  def User.new_token
-    SecureRandom.urlsafe_base64
   end
 end

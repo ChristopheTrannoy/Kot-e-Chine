@@ -1,6 +1,10 @@
 <%= form_with(model: [ @event, @event.comments.build ], local: true) do |form| %>
-
   <p>
+    <%= form.label :Pseudo %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :Commentaire %><br>
     <%= form.text_area :body %>
   </p>
   <p>

@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_and_belongs_to_many :users
   validates :name, presence: true
   validate :d_erreur
   validate :d_today

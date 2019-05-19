@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   resources :events do
     resources :comments
+    member do
+      get :participer
+    end
   end
   resources :articles
   get    '/signup',  to: 'users#new'

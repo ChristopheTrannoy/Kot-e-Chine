@@ -1,21 +1,23 @@
-<h1>Listing articles</h1>
-<%= link_to 'New article', new_article_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="2"></th>
-  </tr>
+<h1>Liste des articles</h1>
 
+
+<% if @articles.count < 1 %>
+  <h3>Il n'y a pas encore d'articles</h3>
+
+  <% else %>
   <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) %></td>
-      <td><%= link_to 'Destroy', article_path(article),
+
+      <strong>Titre : </strong><%= article.title %> |
+      <%= link_to 'Lire', article_path(article) %>
+  <% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
+      | <%= link_to 'Modifier', edit_article_path(article) %> |
+      <%= link_to 'Supprimer', article_path(article),
               method: :delete,
-              data: { confirm: 'Are you sure?' }%></td>
-    </tr>
+              data: { confirm: 'Etes-vous sur ?' }%>
+    <% end %>
+    <% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
+      <br><%= link_to 'Nouvel article', new_article_path %>
+    <% end %>
+
   <% end %>
-</table>
+<% end %>
