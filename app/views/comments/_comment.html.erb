@@ -4,8 +4,6 @@
 
 <% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
 <p>
-  <%= link_to 'Supprimer le commentaire', [comment.event, comment],
-              method: :delete,
-              data: { confirm: 'Etes-vous sur?' } %>
+  <%= button_to 'Supprimer le commentaire', [comment.event, comment], method: :delete, data: { confirm: 'Etes-vous sur?' } %>
 </p>
 <% end %>

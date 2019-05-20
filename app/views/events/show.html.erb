@@ -27,7 +27,7 @@
 
 
 <% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Edit', edit_event_path(@event) %>
   <% end %>
 <%= link_to 'Back', events_path %>
 
