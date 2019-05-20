@@ -15,9 +15,9 @@
               method: :delete,
               data: { confirm: 'Etes-vous sur ?' }%>
     <% end %>
-    <% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
-      <br><%= link_to 'Nouvel article', new_article_path %>
     <% end %>
 
   <% end %>
+<% if logged_in? && current_user.email == 'admin@kotechine.fr' %>
+<br><%= link_to 'Nouvel article', new_article_path %>
 <% end %>
